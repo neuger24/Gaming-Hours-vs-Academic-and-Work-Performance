@@ -18,7 +18,7 @@ for col in numeric_cols:
 
     lower_bound = Q1 - 1.5 * IQR
     upper_bound = Q3 + 1.5 * IQR
-
+    df[col] = df[col].clip(lower=lower_bound, upper=upper_bound)
 
     outliers = df[(df[col] < lower_bound) | (df[col] > upper_bound)]
 
