@@ -12,7 +12,6 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
-
 df = pd.read_csv('Gaming_Hours_vs_Performance.csv', sep=';')
 
 print("Info Dataset:")
@@ -35,7 +34,6 @@ plt.figure(figsize=(8, 5))
 sns.countplot(x='Performance_Impact', data=df, order=['Negative', 'Neutral', 'Positive'])
 plt.title('Distribuzione della Variabile Target (Performance_Impact)')
 plt.show()
-
 
 
 print("\n" + "="*60)
@@ -152,13 +150,13 @@ ax1 = sns.barplot(x='Metrica', y='Valore', data=metrics_df_no)
 for p in ax1.patches:
     ax1.annotate(f'{p.get_height():.2f}', (p.get_x() + p.get_width() / 2., p.get_height()), ha='center', va='center', xytext=(0, 9), textcoords='offset points', fontsize=12, fontweight='bold')
 plt.ylim(0, 1.1)
-plt.title('Performance Modello - SENZA SMOTENC (Ottimizzato)')
+plt.title('Performance Modello - SENZA SMOTENC')
 plt.show()
 
 plt.figure(figsize=(8, 6))
 cm = confusion_matrix(y_test, y_pred_no_smote)
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=target_names, yticklabels=target_names)
-plt.title('Matrice di Confusione (Random Forest SMOTENC)')
+plt.title('Matrice di Confusione (Random Forest Senza SMOTENC)')
 plt.ylabel('Reale')
 plt.xlabel('Predetto')
 plt.show()
@@ -209,10 +207,6 @@ plt.title('Matrice di Confusione (Random Forest SMOTENC)')
 plt.ylabel('Reale')
 plt.xlabel('Predetto')
 plt.show()
-
-
-
-
 
 
 plt.figure(figsize=(10, 6))
