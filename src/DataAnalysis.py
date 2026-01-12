@@ -230,7 +230,7 @@ feature_importance_df = feature_importance_df.sort_values(by='Importance', ascen
 
 plt.figure(figsize=(12, 10))
 sns.barplot(x='Importance', y='Feature', data=feature_importance_df)
-plt.title('Importanza di TUTTE le Feature (Random Forest Classifier)')
+plt.title('Importanza delle Feature (Random Forest Classifier)')
 plt.tight_layout()
 plt.show()
 
@@ -315,7 +315,7 @@ feature_importance_reg_df = feature_importance_reg_df.sort_values(by='Importance
 plt.figure(figsize=(12, 8))
 sns.barplot(x='Importance', y='Feature', data=feature_importance_reg_df)
 plt.title('Importanza delle Feature nel Modello di Regressione\n(Target: Academic_or_Work_Score)', fontsize=14)
-plt.xlabel('Importanza (Gini Importance)')
+plt.xlabel('Importanza (Riduzione della Varianza)')
 plt.ylabel('Feature')
 plt.grid(axis='x', linestyle='--', alpha=0.6)
 plt.tight_layout()
