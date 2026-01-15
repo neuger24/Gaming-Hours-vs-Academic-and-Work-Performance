@@ -57,6 +57,7 @@ for col in cat_cols:
     le_cat = LabelEncoder()
     X[col] = le_cat.fit_transform(X[col])
 
+num_cols = [col for col in X.columns if col not in cat_cols]
 
 cat_indices = [X.columns.get_loc(col) for col in cat_cols]
 print(f"Indici colonne categoriche per SMOTENC: {cat_indices}")
@@ -87,9 +88,12 @@ for col in target_outlier_cols:
 
 
 scaler_base = MinMaxScaler()
-X_train_scaled = scaler_base.fit_transform(X_train)
-X_test_scaled = scaler_base.transform(X_test)
+X_train_scaled = X_train.copy()
+X_test_scaled = X_test.copy()
 
+
+X_train_scaled[num_cols] = scaler_base.fit_transform(X_train[num_cols])
+X_test_scaled[num_cols] = scaler_base.transform(X_test[num_cols])
 
 print(f"Distribuzione classi nel Training Set PRIMA di SMOTENC: {Counter(y_train)}")
 
@@ -101,9 +105,14 @@ print(f"Distribuzione classi nel Training Set DOPO SMOTENC: {Counter(y_train_res
 
 
 scaler_smote = MinMaxScaler()
-X_train_resampled_scaled = scaler_smote.fit_transform(X_train_resampled)
+X_train_resampled_scaled = X_train_resampled.copy()
 
-X_test_scaled_smote = scaler_smote.transform(X_test)
+X_test_scaled_smote = X_test.copy()
+
+
+X_train_resampled_scaled[num_cols] = scaler_smote.fit_transform(X_train_resampled[num_cols])
+
+X_test_scaled_smote[num_cols] = scaler_smote.transform(X_test[num_cols])
 
 
 y_resampled_labels = le_target.inverse_transform(y_train_resampled)
