@@ -1,7 +1,7 @@
 
 # Gaming Hours vs. Academic & Work Performance
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue)
 ![Stato](https://img.shields.io/badge/Status-Completato-brightgreen)
 
 ## 📋 Panoramica del Progetto
@@ -93,6 +93,7 @@ pip install pandas numpy seaborn matplotlib scikit-learn imbalanced-learn
 ```bash
 python analysis_script.py
 ```
+
 
 
 
