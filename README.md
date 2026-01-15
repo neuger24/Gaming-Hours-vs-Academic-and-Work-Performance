@@ -68,7 +68,7 @@ L'analisi dei confini decisionali ha rivelato che i dati sintetici seguono regol
 Poiché queste classi sono linearmente separabili nella logica di generazione sintetica, il modello è stato in grado di classificarle perfettamente.
 
 ### 📉 Modello di Regressione (Random Forest)
-Il modello di regressione ha tentato di predire il valore esatto di `Academic_or_Work_Score`.
+Il modello di regressione ha tentato di predire il valore di `Academic_or_Work_Score`.
 * **MAE (Errore Medio Assoluto):** ~10.05.
 * **R² Score:** ~0.0022.
 
@@ -95,5 +95,6 @@ pip install pandas numpy seaborn matplotlib scikit-learn imbalanced-learn
 ```bash
 python analysis_script.py
 ```
+
 
 
