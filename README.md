@@ -91,8 +91,9 @@ pip install pandas numpy seaborn matplotlib scikit-learn imbalanced-learn
 
 ### Esecuzione
 ```bash
-python analysis_script.py
+python DataAnalysis.py
 ```
+
 
 
 
